@@ -15,4 +15,4 @@ This file contains the code to reproduce the figures in the manuscript relying o
 This file contains the data for the inputs and outputs of the process specifications.
 
 ## par.csv
-This file contains parameter prices for the model.
+This file contains parameter and prices for the model.
