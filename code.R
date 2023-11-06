@@ -4,8 +4,9 @@ rm(list = ls())
 
 # Load packages
 pacman::p_load(eurostat, rsdmx, lubridate, sf, scales, ggrepel,
-               ggthemes, readxl, conflicted, gghighlight, wesanderson, gfonts,
-               plotly, xts, Benchmarking, viridis, patchwork)
+               ggthemes, readxl, conflicted, gghighlight, wesanderson,
+               gfonts, RColorBrewer,
+               plotly, xts, Benchmarking, viridis, patchwork, ggpattern)
 
 library(tidyverse)
 conflicts_prefer(dplyr::filter)
@@ -168,10 +169,10 @@ exp$dcf <- aggregate(dat$dnr, by = list(dat$index), FUN = sum)$x
 exp$npv <- exp$dcf - exp$In
 #exp$npv <- exp$npv$values
 
-# LCOP Levelized cost of phosphorus. 
+# LCOP Levelized cost of phosphorus ----
 
 #discounted the quantities
-dat$dq <- ((dat$sludge_monthly * (dat$recovery_ratio /100) * (par$P_per_sludge / 1000) * 0.46)*  (1 + par$discount_rate * 0.01) ** -dat$year)
+dat$dq <- (dat$sludge_monthly * (dat$recovery_ratio /100) * (par$P_per_sludge / 1000) *  (1 + par$discount_rate * 0.01) ** -dat$year)
 #discount the costs 
 dat$dcq <-  (dat$sludge_monthly * dat$input_ps) * ((1 + par$discount_rate * 0.01) ** -dat$year) 
 #sum discounted costs and Investment
@@ -185,7 +186,7 @@ exp$mr<- (exp$recovery_ratio /100) * (par$P_per_sludge / 1000) * (0.46 * (P_proc
 exp$mp <- exp$mr - exp$input_ps
 
 # calculations sensitivity ----
-#extract for sensitvity
+#extract for sensitivity
 ap <- ap %>%
 mutate(year = year(time), month = month(time)) 
 p_price <-  ap %>% 
@@ -224,6 +225,12 @@ price$gas_real <- with(price, gas_price /   infl_index * infl_index[[1]])
 
 high_p <- quantile(price$phos_real, .9,na.rm =T)
 low_p  <- quantile(price$phos_real, .1,na.rm =T)
+
+# price for a kg of pure 
+0.46 * (P_prock / 100)
+0.46 * (high_p / 100)
+0.46 * (low_p  / 100)
+
 high_elec <- quantile(price$elec_real, .9,na.rm =T)
 high_gas <- quantile(price$gas_real,  .9,na.rm =T)
 
@@ -837,9 +844,9 @@ peer.exp <- exp %>%
    filter(!is.na(match(index, V_peers)))
 peer.exp$group <- 1:nrow(peer.exp)
 
-facet.exp <- pivot_longer(peer.exp, cols=c(24,30:37), names_to = "sce", values_to="npv_l")
+facet.exp <- pivot_longer(peer.exp, cols=c(25,31:38), names_to = "sce", values_to="npv_l")
 
-input.exp <- pivot_longer(exp, cols=c(41:43), names_to ="input", values_to="value")
+input.exp <- pivot_longer(exp, cols=c(42:44), names_to ="input", values_to="value")
 
 options(scipen = 999)
 huhn  <-c(max(exp$sodium_hydroxide      ),

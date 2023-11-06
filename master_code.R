@@ -4,11 +4,12 @@
 
 # Set the folder with the replication files as working directory
 #setwd()
-
-install.packages(c("pacman", "eurostat", "rsdmx", "lubridate", "sf", "scales", "ggrepel",
-                 "ggthemes", "conflicted", "gghighlight", "wesanderson", "gfonts",
-                 "plotly", "xts", "Benchmarking", "viridis", "patchwork"))
-
+#
+#install.packages(c("pacman", "eurostat", "rsdmx", "lubridate", "sf",
+#"scales", "ggrepel",
+#                 "ggthemes", "conflicted", "gghighlight", "wesanderson",
+#"gfonts",
+#                 "plotly", "xts", "Benchmarking", "viridis", "patchwork", "RColorBrewer", "ggpattern"))
 
 #set directory  
 source("code.R")
@@ -24,3 +25,4 @@ te.plot
 plot
 # Figure 
 app.plot
+
