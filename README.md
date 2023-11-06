@@ -1,6 +1,6 @@
-# Assessing-Investments-into-Phosphorus-Fertilizer-Recovery-from-Dairy-Processing-Wastewater
+# Do investments in phosphorus recovery from dairy processing wastewater pay off?
 
-This repository DOI: (XXX) contains files that contribute to our supplementary materials of the Manuscript: 'Assessing Investments into Phosphorus Fertilizer Recovery from Dairy Processing Wastewater' by Uhlemann J. R., Dalhaus T., Leahy J.J., Oude Lansink A.  (The DOI of the Manuscript can be found here when published). Within this repository we provide all necessary files to comprehend procedure of code calculations. We illustrate our code for data visualization that enables reproduction of our figures. To fully replicate the results run master_code.R in a working directory with the other files. The code was run on R version 4.2.3 successfully. The data from EUROSTAT was last accessed on the 21/06/2023.
+This repository DOI: (XXX) contains files that contribute to our supplementary materials of the Manuscript: 'Do investments in phosphorus recovery from dairy processing wastewater pay off?' by Uhlemann J. R., Dalhaus T., Leahy J.J., Oude Lansink A.  (The DOI of the Manuscript can be found here when published). Within this repository we provide all necessary files to comprehend procedure of code calculations. We illustrate our code for data visualization that enables reproduction of our figures. To fully replicate the results run master_code.R in a working directory with the other files. The code was run on R version 4.2.3 successfully. The data from EUROSTAT was last accessed on the 01/10/2023.
 
 ## master_code.R
 This file installs all the packages runs the code scripts and creates the figures in the manuscript.
